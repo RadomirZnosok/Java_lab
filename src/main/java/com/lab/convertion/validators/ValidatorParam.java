@@ -5,13 +5,16 @@ import com.lab.convertion.controllers.ControllerConvert;
 import io.micrometer.common.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ValidatorParam implements ValidatorParamInf {
     private static final Logger logger = LoggerFactory.getLogger(ControllerConvert.class);
-    private ConvResponse<String> resp = new ConvResponse<>("", 0);
+    //private ConvResponse<String> resp = new ConvResponse<>("", 0);
 
     @Override
-    public ConvResponse<String> isNum(String number) {  // return bool
+    public ConvResponse<String> isNum(String number) {
+        ConvResponse<String> resp = new ConvResponse<>("", 0);
         if (StringUtils.isEmpty(number)) {
             resp.setStatus("NOT_FOUND");
             resp.setRespStatus(404);

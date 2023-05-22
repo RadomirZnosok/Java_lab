@@ -4,10 +4,18 @@ import com.lab.convertion.controllers.ControllerConvert;
 import com.lab.convertion.entity.CounterCalls;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CounterCallsServer {
     private static final Logger logger = LoggerFactory.getLogger(ControllerConvert.class);
-    private final CounterCalls counter = new CounterCalls();
+    private final CounterCalls counter;// = new CounterCalls();
+
+    @Autowired
+    public CounterCallsServer(){
+        this.counter = new CounterCalls();
+    }
     public void increase(){
         if (counter.getCounter().equals(Integer.MAX_VALUE)){
             logger.warn("Static counter overflow. The counter is reset to zero");

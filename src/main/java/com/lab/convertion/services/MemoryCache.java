@@ -1,8 +1,11 @@
-package com.lab.convertion.entity;
+package com.lab.convertion.services;
+
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class MemoryCache<key, value> {
     final private Map<key, value> memStorage;
                                 //как положить только определённые классы?//смотреть..generic quantity
@@ -19,9 +22,9 @@ public class MemoryCache<key, value> {
         return memStorage.get(id);
     }
     public boolean isHas(key id) {
-        return memStorage.containsKey(id);
+        return memStorage.size() > 0 && memStorage.containsKey(id);
     }
-    public void popAll(key id) {
+/*    public void popAll(key id) {
         memStorage.remove(id);
     }
     public void addMap(Map<key, value> addedMap){
@@ -30,4 +33,5 @@ public class MemoryCache<key, value> {
     public int getsize(){
         return this.memStorage.size();
     }
+ */
 }

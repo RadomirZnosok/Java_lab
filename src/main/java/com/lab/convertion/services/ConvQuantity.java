@@ -41,10 +41,27 @@ public class ConvQuantity implements ConvertInterface {
             return resp;
         }
         catch(MyExceptions | Exception myError){
-            //logger.error(myError.getMessage());
             ConvResponse<String> respErr = new ConvResponse<>("Internal error", 500);
             respErr.addResp(myError.getMessage());
             return respErr;
+        }
+    }
+
+    public PhysQuantity conversionPh(PhysQuantity param){
+        String oldType = param.getType();
+        PhysQuantity physQuantity;
+        try {
+            if (oldType.equals("inch"))
+                physQuantity = this.inchToMetre(param);
+            else if (oldType.equals("metre"))
+                physQuantity = this.metreToInch(param);
+            else
+                physQuantity = new PhysQuantity("");
+            return physQuantity;
+        }
+        catch(MyExceptions | Exception myError){
+            physQuantity = new PhysQuantity("");
+            return physQuantity;
         }
     }
 }

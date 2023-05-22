@@ -1,0 +1,1 @@
+insert into mydb.table (param, numr, typer) values('5 metre', 15.000, 'inch');

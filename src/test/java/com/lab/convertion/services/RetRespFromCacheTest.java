@@ -1,6 +1,5 @@
 package com.lab.convertion.services;
 
-import com.lab.convertion.entity.MemoryCache;
 import com.lab.convertion.entity.PhysQuantity;
 import org.junit.jupiter.api.Test;
 

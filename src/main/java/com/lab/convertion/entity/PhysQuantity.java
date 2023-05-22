@@ -23,4 +23,9 @@ public class PhysQuantity {//PhysQuantity
     public Double getNum(){
         return this.number;
     }
+
+    @Override
+    public String toString(){
+        return new String(this.number + " " + this.type);
+    }
 }

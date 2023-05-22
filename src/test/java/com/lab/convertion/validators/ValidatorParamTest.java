@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ValidatorParamTest {
-    boolean check;
-    ConvResponse<String> resp;
+    private ConvResponse<String> resp;
     private final ValidatorParam validatorParam = new ValidatorParam();
 
     @Test
@@ -22,7 +21,7 @@ public class ValidatorParamTest {
     }
     @Test
     public void checkIsNumeric(){
-        check = validatorParam.isNumeric("23");
+        boolean check = validatorParam.isNumeric("23");
         assertThat(check).isEqualTo(true);
         check = validatorParam.isNumeric("asd");
         assertThat(check).isEqualTo(false);
